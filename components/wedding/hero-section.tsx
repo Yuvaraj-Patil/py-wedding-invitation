@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import { heroImage } from "@/lib/wedding-images"
 
 interface TimeLeft {
   days: number
@@ -39,105 +40,104 @@ export function HeroSection() {
     return () => clearInterval(timer)
   }, [])
 
+  const countdown = [
+    { value: timeLeft.days, label: "Days" },
+    { value: timeLeft.hours, label: "Hrs" },
+    { value: timeLeft.minutes, label: "Min" },
+    { value: timeLeft.seconds, label: "Sec" },
+  ]
+
   return (
-    <section className="min-h-screen relative overflow-hidden">
-      {/* Split Screen Layout */}
-      <div className="flex flex-col lg:flex-row min-h-screen">
-        {/* Left Side - Image */}
-        <div className="lg:w-1/2 h-[50vh] lg:h-screen relative">
+    <section className="relative min-h-[100svh] overflow-hidden bg-[var(--burgundy)]">
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: `linear-gradient(135deg, transparent 0 48%, #C9A962 49% 51%, transparent 52% 100%)`,
+        backgroundSize: "42px 42px",
+      }} />
+
+      <div className="relative grid min-h-[100svh] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+        <div className="relative min-h-[48svh] overflow-hidden bg-[var(--burgundy-dark)] sm:min-h-[58svh] lg:min-h-[100svh]">
           <Image
-            src="/images/prewedding-1.jpg"
-            alt="Pre-wedding photo"
+            src={heroImage.src}
+            alt=""
             fill
-            className="object-cover"
+            className="scale-110 object-cover opacity-35 blur-2xl"
+            sizes="(max-width: 1024px) 100vw, 46vw"
             priority
+            aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--burgundy)]/30 lg:bg-gradient-to-r lg:from-transparent lg:to-[var(--burgundy)]/50" />
-          
-          {/* Floating Date Badge */}
-          <div className="absolute bottom-8 left-8 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 lg:right-0 lg:left-auto lg:translate-x-1/2 z-20">
-            <div className="bg-[var(--gold)] text-[var(--burgundy)] px-6 py-8 text-center shadow-2xl">
-              <span className="block font-serif text-4xl font-light">05</span>
-              <span className="block font-sans text-xs tracking-[0.2em] uppercase mt-1">May</span>
-              <span className="block font-sans text-sm mt-1">2026</span>
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--burgundy)]/85 via-[var(--burgundy)]/20 to-black/10 lg:bg-gradient-to-r lg:from-black/10 lg:via-[var(--burgundy)]/10 lg:to-[var(--burgundy)]/70" />
+
+          <div className="relative z-10 flex min-h-[48svh] items-center justify-center px-5 py-8 sm:min-h-[58svh] sm:px-8 lg:min-h-[100svh] lg:px-12">
+            <div className="relative w-full max-w-[500px]">
+              <div className="absolute -inset-3 border border-[var(--gold)]/35" />
+              <div className="absolute -bottom-5 -right-5 h-28 w-28 border-b border-r border-[var(--gold)]/60" />
+              <div className="absolute -left-5 -top-5 h-28 w-28 border-l border-t border-[var(--gold)]/60" />
+              <div className="relative z-10 h-[42svh] w-full sm:h-[54svh] lg:h-[76svh]">
+                <Image
+                  src={heroImage.src}
+                  alt={heroImage.alt}
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 1024px) min(88vw, 500px), 38vw"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Right Side - Content */}
-        <div className="lg:w-1/2 bg-[var(--burgundy)] flex items-center justify-center p-8 lg:p-16 min-h-[50vh] lg:min-h-screen">
-          <div className="max-w-lg w-full">
-            {/* Decorative Line */}
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-px flex-1 bg-[var(--gold)]/30" />
-              <span className="text-[var(--gold)] font-sans text-xs tracking-[0.3em] uppercase">Wedding Invitation</span>
-              <div className="h-px flex-1 bg-[var(--gold)]/30" />
+        <div className="relative flex min-h-[52svh] items-center px-6 py-10 sm:px-10 lg:min-h-[100svh] lg:px-16 xl:px-20">
+          <div className="mx-auto w-full max-w-2xl text-center lg:text-left">
+            <div className="flex items-center justify-center gap-4 lg:justify-start">
+              <div className="h-px w-12 bg-[var(--gold)]/50" />
+              <span className="text-[var(--gold)] font-sans text-xs tracking-[0.28em] uppercase">
+                Wedding Invitation
+              </span>
+              <div className="h-px w-12 bg-[var(--gold)]/50" />
             </div>
 
-            {/* Names with Creative Typography */}
-            <div className="text-center mb-8">
-              <h1 className="font-serif text-6xl lg:text-8xl text-[var(--cream)] font-light tracking-wide">
-                P
-                <span className="text-[var(--gold)]">&</span>
-                Y
-              </h1>
-              <div className="mt-4 space-y-1">
-                <p className="font-serif text-2xl lg:text-3xl text-[var(--cream)] font-light">Pooja</p>
-                <p className="text-[var(--gold)] font-sans text-xs tracking-[0.2em]">TOGETHER WITH</p>
-                <p className="font-serif text-2xl lg:text-3xl text-[var(--cream)] font-light">Yuvaraj</p>
-              </div>
+            <h1 className="mt-6 font-serif text-5xl font-light leading-[0.92] text-[var(--cream)] sm:text-7xl xl:text-8xl">
+              <span className="block">Pooja</span>
+              <span className="block text-4xl text-[var(--gold)] sm:text-6xl xl:text-7xl">&amp;</span>
+              <span className="block">Yuvaraj</span>
+            </h1>
+
+            <div className="mt-6 flex flex-col items-center gap-2 font-sans text-sm tracking-[0.16em] text-[var(--gold-light)]/85 sm:flex-row sm:justify-center sm:gap-4 lg:justify-start">
+              <span>May 5, 2026</span>
+              <span className="hidden h-1 w-1 rotate-45 bg-[var(--gold)] sm:block" />
+              <span>Bhikangaon, Madhya Pradesh</span>
             </div>
 
-            {/* Invitation Text */}
-            <p className="text-center text-[var(--gold-light)] font-sans text-sm tracking-wide mb-12">
-              Request the pleasure of your company at the celebration of their marriage
+            <p className="mx-auto mt-6 max-w-[19rem] text-center font-sans text-sm leading-7 text-[var(--cream)]/82 sm:max-w-xl sm:text-base sm:leading-8 lg:mx-0 lg:text-left">
+              Request the pleasure of your company at the celebration of their marriage.
             </p>
 
-            {/* Countdown Timer - Creative Style */}
             {mounted && (
-              <div className="grid grid-cols-4 gap-2 mb-12">
-                {[
-                  { value: timeLeft.days, label: "Days" },
-                  { value: timeLeft.hours, label: "Hrs" },
-                  { value: timeLeft.minutes, label: "Min" },
-                  { value: timeLeft.seconds, label: "Sec" },
-                ].map((item, index) => (
-                  <div 
-                    key={item.label} 
-                    className="relative group"
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:mt-10">
+                {countdown.map((item) => (
+                  <div
+                    key={item.label}
+                    className="border border-[var(--gold)]/20 bg-[var(--burgundy-dark)]/70 px-4 py-5 text-center"
                   >
-                    <div className="bg-[var(--burgundy-dark)] border border-[var(--gold)]/20 p-4 text-center transition-all duration-300 hover:border-[var(--gold)]/60 hover:bg-[var(--burgundy-dark)]/80">
-                      <span className="block font-serif text-3xl lg:text-4xl text-[var(--gold)]">
-                        {item.value.toString().padStart(2, "0")}
-                      </span>
-                      <span className="block font-sans text-[10px] tracking-[0.15em] uppercase text-[var(--cream)]/60 mt-1">
-                        {item.label}
-                      </span>
-                    </div>
-                    {index < 3 && (
-                      <span className="absolute top-1/2 -right-1 -translate-y-1/2 text-[var(--gold)]/40 font-light text-xl hidden lg:block">:</span>
-                    )}
+                    <span className="block font-serif text-4xl leading-none text-[var(--gold)]">
+                      {item.value.toString().padStart(2, "0")}
+                    </span>
+                    <span className="mt-2 block font-sans text-[10px] uppercase tracking-[0.18em] text-[var(--cream)]/60">
+                      {item.label}
+                    </span>
                   </div>
                 ))}
               </div>
             )}
 
-            {/* Scroll Indicator */}
-            <div className="flex justify-center">
-              <div className="flex flex-col items-center gap-2 animate-bounce">
-                <span className="text-[var(--gold)]/60 font-sans text-xs tracking-wider">Scroll</span>
-                <svg className="w-5 h-5 text-[var(--gold)]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
+            <div className="mt-8 flex items-center justify-center gap-3 text-[var(--gold)]/70 lg:mt-10 lg:justify-start">
+              <span className="h-px w-10 bg-[var(--gold)]/40" />
+              <span className="font-serif text-2xl italic">With love and blessings</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Floating Decorative Elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 border border-[var(--gold)]/10 rotate-45 hidden lg:block" />
-      <div className="absolute bottom-20 left-20 w-24 h-24 border border-[var(--gold)]/10 rotate-12 hidden lg:block" />
     </section>
   )
 }

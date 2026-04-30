@@ -3,15 +3,9 @@
 import { useState } from "react"
 import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { galleryImages } from "@/lib/wedding-images"
 
-const galleryImages = [
-  { id: 1, src: "/images/prewedding-1.jpg", alt: "Traditional attire at sunset", span: "col-span-2 row-span-2" },
-  { id: 2, src: "/images/prewedding-2.jpg", alt: "Laughing together", span: "col-span-1 row-span-1" },
-  { id: 3, src: "/images/prewedding-3.jpg", alt: "Garden romance", span: "col-span-1 row-span-2" },
-  { id: 4, src: "/images/prewedding-4.jpg", alt: "Dancing in palace", span: "col-span-1 row-span-1" },
-  { id: 5, src: "/images/prewedding-5.jpg", alt: "Intimate portrait", span: "col-span-2 row-span-1" },
-  { id: 6, src: "/images/prewedding-6.jpg", alt: "Beach walk", span: "col-span-1 row-span-1" },
-]
+const galleryCount = galleryImages.length
 
 export function GallerySection() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
@@ -52,25 +46,28 @@ export function GallerySection() {
           </div>
 
           <div className="mt-8 lg:mt-0 flex items-center gap-4">
-            <span className="font-sans text-sm text-[var(--muted-foreground)]">{galleryImages.length} Photos</span>
+            <span className="font-sans text-sm text-[var(--muted-foreground)]">{galleryCount} Photos</span>
             <div className="h-px w-16 bg-[var(--gold)]" />
           </div>
         </div>
 
-        {/* Bento Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[180px]">
+        {/* Gallery Grid */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 md:gap-5">
           {galleryImages.map((image, index) => (
             <button
+              type="button"
               key={image.id}
               onClick={() => setSelectedIndex(index)}
-              className={`relative overflow-hidden group cursor-pointer ${image.span}`}
+              className="relative mb-3 md:mb-5 block w-full break-inside-avoid overflow-hidden bg-[var(--burgundy)]/5 text-left group cursor-pointer"
+              aria-label={`Open photo ${index + 1}`}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
-                className="object-cover transition-all duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                width={image.width}
+                height={image.height}
+                className="h-auto w-full transition-all duration-700 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
 
               {/* Overlay */}
@@ -87,7 +84,7 @@ export function GallerySection() {
 
               {/* Image Number */}
               <span className="absolute bottom-4 right-4 font-serif text-lg text-white/0 group-hover:text-white/80 transition-all duration-300">
-                0{index + 1}
+                {String(index + 1).padStart(2, "0")}
               </span>
             </button>
           ))}
@@ -102,29 +99,35 @@ export function GallerySection() {
         >
           {/* Close Button */}
           <button
+            type="button"
             className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-20"
             onClick={() => setSelectedIndex(null)}
+            aria-label="Close gallery"
           >
             <X className="w-8 h-8" />
           </button>
 
           {/* Navigation */}
           <button
+            type="button"
             className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/40 transition-all z-20"
             onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+            aria-label="Previous photo"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
+            type="button"
             className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/40 transition-all z-20"
             onClick={(e) => { e.stopPropagation(); handleNext(); }}
+            aria-label="Next photo"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
           {/* Image */}
           <div
-            className="relative w-full max-w-5xl aspect-[4/3] mx-4"
+            className="relative h-[82vh] w-[min(92vw,1100px)] mx-4"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -138,7 +141,7 @@ export function GallerySection() {
 
           {/* Counter */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 font-sans text-sm tracking-wider">
-            {selectedIndex + 1} / {galleryImages.length}
+            {selectedIndex + 1} / {galleryCount}
           </div>
         </div>
       )}

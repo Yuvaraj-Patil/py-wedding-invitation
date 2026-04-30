@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Heart, MapPin, Sparkles } from "lucide-react"
+import { Heart, Sparkles } from "lucide-react"
 
 export function OurStorySection() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -33,7 +33,7 @@ export function OurStorySection() {
       title: "Fate Brings Us Back",
       subtitle: "Years Later",
       description: "But some stories aren't meant to end halfway. I was on a trip to Mallikarjun, Srisailam with friends... and she was in Hyderabad. Different places... same timing. We met again. No promises. No clarity. Just two people... standing in front of something unfinished.",
-      icon: MapPin,
+      icon: Sparkles,
     },
     {
       chapter: "05",
