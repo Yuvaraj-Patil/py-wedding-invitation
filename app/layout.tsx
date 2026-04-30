@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Montserrat } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -18,7 +17,6 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Pooja & Yuvaraj - Wedding Invitation',
   description: 'You are cordially invited to celebrate the wedding of Pooja & Yuvaraj',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -47,7 +45,6 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className={`${cormorant.variable} ${montserrat.variable} font-sans antialiased`}>
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
