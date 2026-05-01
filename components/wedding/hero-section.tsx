@@ -108,7 +108,7 @@ export function HeroSection() {
             </div>
 
             <p className="mx-auto mt-6 max-w-[21rem] text-center font-serif text-xl leading-8 text-[var(--cream)]/90 sm:max-w-xl sm:text-2xl lg:mx-0 lg:text-left">
-              From friendship to forever, we invite you to bless the beginning of our married life.
+              What began as friendship has grown into something lasting join us as we step into forever together.            
             </p>
 
             {mounted && (
