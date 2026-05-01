@@ -100,22 +100,6 @@ export const weddingImages: WeddingImage[] = [
   },
 ]
 
-const imageById = new Map(weddingImages.map((image) => [image.id, image]))
+export const heroImage = weddingImages[0]
 
-export const heroImage = imageById.get(10) ?? weddingImages[0]
-
-export const galleryImages = [
-  10,
-  9,
-  11,
-  12,
-  13,
-  7,
-  4,
-  2,
-  3,
-  8,
-  6,
-  5,
-  1,
-].map((id) => imageById.get(id) ?? weddingImages[0])
+export const galleryImages = weddingImages

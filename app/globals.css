@@ -4,20 +4,20 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #FDF8F5;
-  --foreground: #2D1F1F;
-  --card: #FFFBF8;
-  --card-foreground: #2D1F1F;
-  --popover: #FFFBF8;
-  --popover-foreground: #2D1F1F;
-  --primary: #722F37;
-  --primary-foreground: #FDF8F5;
-  --secondary: #F5EBE6;
-  --secondary-foreground: #722F37;
-  --muted: #F5EBE6;
-  --muted-foreground: #8B6969;
-  --accent: #C9A962;
-  --accent-foreground: #2D1F1F;
+  --background: #fff8ef;
+  --foreground: #2b1516;
+  --card: #fffaf3;
+  --card-foreground: #2b1516;
+  --popover: #fffaf3;
+  --popover-foreground: #2b1516;
+  --primary: #5a1622;
+  --primary-foreground: #fff8ef;
+  --secondary: #f4e6d3;
+  --secondary-foreground: #5a1622;
+  --muted: #f4e6d3;
+  --muted-foreground: #7f5f5f;
+  --accent: #c9a45a;
+  --accent-foreground: #2b1516;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: #E8D5C4;
@@ -39,12 +39,15 @@
   --sidebar-ring: oklch(0.708 0 0);
   
   /* Wedding specific colors */
-  --burgundy: #722F37;
-  --burgundy-dark: #5A252C;
-  --gold: #C9A962;
-  --gold-light: #E5D4A1;
-  --cream: #FDF8F5;
-  --cream-dark: #F5EBE6;
+  --burgundy: #5a1622;
+  --burgundy-dark: #351018;
+  --burgundy-soft: #7a2c38;
+  --gold: #c9a45a;
+  --gold-deep: #9e7430;
+  --gold-light: #ead7a1;
+  --cream: #fff8ef;
+  --cream-dark: #f4e6d3;
+  --ink: #2b1516;
 }
 
 .dark {
@@ -129,5 +132,38 @@
   }
   body {
     @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .royal-dark {
+    background:
+      linear-gradient(135deg, rgba(255, 248, 239, 0.035) 0 1px, transparent 1px 44px),
+      linear-gradient(120deg, var(--burgundy-dark), var(--burgundy) 48%, var(--burgundy-soft));
+  }
+
+  .royal-light {
+    background:
+      linear-gradient(135deg, rgba(90, 22, 34, 0.035) 0 1px, transparent 1px 42px),
+      var(--cream);
+  }
+
+  .royal-divider {
+    @apply flex items-center justify-center gap-4;
+  }
+
+  .royal-divider::before,
+  .royal-divider::after {
+    content: "";
+    @apply h-px w-14 bg-[var(--gold)]/45;
+  }
+
+  .royal-frame {
+    @apply border border-[var(--gold)]/35 bg-[var(--cream)]/5 shadow-2xl shadow-black/20;
+  }
+
+  .royal-card {
+    @apply border border-[var(--gold)]/25 bg-white/85 shadow-lg shadow-[var(--burgundy)]/5;
   }
 }

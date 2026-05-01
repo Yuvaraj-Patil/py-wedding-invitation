@@ -59,37 +59,31 @@ export function OurStorySection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 bg-[#FDF8F5] relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-[#C9A962]/5 blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-[#722F37]/5 blur-3xl" />
+    <section className="royal-light py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-x-6 top-6 bottom-6 border border-[var(--gold)]/15 pointer-events-none" />
 
-      {/* Large Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-        <span className="font-serif text-[15vw] text-[#722F37]/[0.02] font-light whitespace-nowrap">
-          Our Journey
+        <span className="font-serif text-[15vw] text-[var(--burgundy)]/[0.03] font-light whitespace-nowrap">
+          What Brought Us Here
         </span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-16 md:mb-24">
-          <span className="text-[#C9A962] font-sans text-xs tracking-[0.3em] uppercase block mb-4">
-            How It All Began
+          <span className="royal-divider text-[var(--gold-deep)] font-sans text-xs tracking-[0.3em] uppercase mb-5">
+            What Brought Us Here
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl text-[#722F37] font-light leading-tight">
+          <h2 className="font-serif text-5xl md:text-7xl text-[var(--burgundy)] font-light leading-tight">
             Our <span className="italic">Story</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-[#8B6969] font-sans text-base leading-relaxed mt-6">
+          <p className="max-w-2xl mx-auto text-[var(--muted-foreground)] font-sans text-base leading-relaxed mt-6">
             Every love story is beautiful, but ours is uniquely ours. A journey of friendship,
             missed moments, second chances, and finally... forever.
           </p>
         </div>
 
-        {/* Story Timeline - Vertical Card Layout */}
         <div className="relative">
-          {/* Vertical Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#E8D5C4] to-transparent" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[var(--gold)]/45 to-transparent" />
 
           <div className="space-y-8 md:space-y-0">
             {timeline.map((item, index) => {
@@ -102,69 +96,62 @@ export function OurStorySection() {
                   key={item.chapter}
                   className={`relative md:flex md:items-center ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
-                  {/* Timeline Node */}
                   <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10">
                     <button
                       onClick={() => setActiveIndex(index)}
-                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${isActive
-                        ? "bg-[#722F37] text-white scale-110 shadow-lg shadow-[#722F37]/30"
-                        : "bg-white border-2 border-[#E8D5C4] text-[#C9A962] hover:border-[#C9A962]"
+                      className={`w-12 h-12 flex items-center justify-center border transition-all duration-500 ${isActive
+                        ? "bg-[var(--burgundy)] text-[var(--cream)] border-[var(--gold)] shadow-lg shadow-[var(--burgundy)]/20"
+                        : "bg-[var(--cream)] border-[var(--gold)]/35 text-[var(--gold-deep)] hover:border-[var(--gold)]"
                         }`}
+                      aria-label={`Open chapter ${item.chapter}`}
                     >
                       <Icon className="w-5 h-5" />
                     </button>
                   </div>
 
-                  {/* Card */}
                   <div className={`md:w-[calc(50%-40px)] ${isEven ? "md:pr-8" : "md:pl-8"}`}>
                     <button
                       onClick={() => setActiveIndex(index)}
-                      className={`w-full text-left group p-6 md:p-8 rounded-2xl transition-all duration-500 ${isActive
-                        ? "bg-white shadow-xl shadow-[#722F37]/10 scale-[1.02]"
-                        : "bg-white/50 hover:bg-white hover:shadow-lg"
+                      className={`w-full text-left group p-6 md:p-8 transition-all duration-500 ${isActive
+                        ? "royal-card border-[var(--gold)]/45"
+                        : "border border-[var(--gold)]/15 bg-white/55 hover:bg-white/85 hover:border-[var(--gold)]/35"
                         }`}
                     >
-                      {/* Chapter Number */}
                       <div className="flex items-center gap-4 mb-4">
-                        <span className={`font-serif text-4xl md:text-5xl transition-colors duration-300 ${isActive ? "text-[#C9A962]" : "text-[#E8D5C4]"
+                        <span className={`font-serif text-4xl md:text-5xl transition-colors duration-300 ${isActive ? "text-[var(--gold-deep)]" : "text-[var(--gold)]/35"
                           }`}>
                           {item.chapter}
                         </span>
                         <div className="md:hidden">
-                          <Icon className={`w-5 h-5 ${isActive ? "text-[#722F37]" : "text-[#C9A962]"}`} />
+                          <Icon className={`w-5 h-5 ${isActive ? "text-[var(--burgundy)]" : "text-[var(--gold-deep)]"}`} />
                         </div>
                       </div>
 
-                      {/* Subtitle */}
-                      <span className={`font-sans text-xs tracking-[0.2em] uppercase block mb-2 transition-colors duration-300 ${isActive ? "text-[#C9A962]" : "text-[#8B6969]"
+                      <span className={`font-sans text-xs tracking-[0.2em] uppercase block mb-2 transition-colors duration-300 ${isActive ? "text-[var(--gold-deep)]" : "text-[var(--muted-foreground)]"
                         }`}>
                         {item.subtitle}
                       </span>
 
-                      {/* Title */}
-                      <h3 className={`font-serif text-2xl md:text-3xl mb-4 transition-colors duration-300 ${isActive ? "text-[#722F37]" : "text-[#722F37]/70"
+                      <h3 className={`font-serif text-2xl md:text-3xl mb-4 transition-colors duration-300 ${isActive ? "text-[var(--burgundy)]" : "text-[var(--burgundy)]/72"
                         }`}>
                         {item.title}
                       </h3>
 
-                      {/* Description */}
                       <p className={`font-sans text-sm md:text-base leading-relaxed transition-all duration-500 ${isActive
-                        ? "text-[#8B6969] opacity-100"
-                        : "text-[#8B6969]/60 line-clamp-2"
+                        ? "text-[var(--muted-foreground)] opacity-100"
+                        : "text-[var(--muted-foreground)]/65 line-clamp-2"
                         }`}>
                         {item.description}
                       </p>
 
-                      {/* Read More Indicator */}
                       {!isActive && (
-                        <span className="inline-block mt-4 text-[#C9A962] font-sans text-xs tracking-wider uppercase group-hover:underline">
+                        <span className="inline-block mt-4 text-[var(--gold-deep)] font-sans text-xs tracking-wider uppercase group-hover:underline">
                           Read more
                         </span>
                       )}
                     </button>
                   </div>
 
-                  {/* Spacer for opposite side */}
                   <div className="hidden md:block md:w-[calc(50%-40px)]" />
                 </div>
               )
@@ -172,19 +159,18 @@ export function OurStorySection() {
           </div>
         </div>
 
-        {/* Ending Quote */}
         <div className="mt-20 md:mt-32 relative">
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[#C9A962]/10 font-serif text-[120px] leading-none">
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[var(--gold)]/15 font-serif text-[120px] leading-none">
             &ldquo;
           </div>
-          <blockquote className="relative z-10 max-w-3xl mx-auto text-center bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-lg">
-            <p className="font-serif text-xl md:text-3xl text-[#722F37] font-light italic leading-relaxed">
+          <blockquote className="royal-card relative z-10 max-w-3xl mx-auto text-center p-8 md:p-12">
+            <p className="font-serif text-xl md:text-3xl text-[var(--burgundy)] font-light italic leading-relaxed">
               Some stories aren&apos;t meant to end halfway. Ours was always meant to find its way back... to forever.
             </p>
             <div className="mt-6 flex items-center justify-center gap-2">
-              <span className="w-8 h-px bg-[#C9A962]" />
-              <Heart className="w-4 h-4 text-[#C9A962] fill-[#C9A962]" />
-              <span className="w-8 h-px bg-[#C9A962]" />
+              <span className="w-8 h-px bg-[var(--gold)]" />
+              <Heart className="w-4 h-4 text-[var(--gold)] fill-[var(--gold)]" />
+              <span className="w-8 h-px bg-[var(--gold)]" />
             </div>
           </blockquote>
         </div>

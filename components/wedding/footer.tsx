@@ -2,8 +2,8 @@ import { Heart, Instagram, Mail, Phone } from "lucide-react"
 
 export function WeddingFooter() {
   return (
-    <footer className="bg-[var(--burgundy)] relative overflow-hidden">
-      {/* Large Background Names */}
+    <footer className="royal-dark relative overflow-hidden">
+      <div className="absolute inset-x-6 top-6 bottom-6 border border-[var(--gold)]/12 pointer-events-none" />
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
         <span className="font-serif text-[30vw] text-white/[0.02] font-light whitespace-nowrap">
           P & Y
@@ -11,22 +11,28 @@ export function WeddingFooter() {
       </div>
 
       <div className="relative z-10">
-        {/* Main Footer Content */}
         <div className="max-w-6xl mx-auto px-4 py-20 md:py-32">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-            {/* Left - Names & Date */}
+          <div className="mb-14 text-center">
+            <span className="royal-divider text-[var(--gold)] font-sans text-xs tracking-[0.3em] uppercase mb-5">
+              With Gratitude
+            </span>
+            <h2 className="font-serif text-5xl md:text-7xl text-[var(--cream)] font-light">
+              See You At The Celebration
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 border-y border-[var(--gold)]/18 py-10">
             <div>
-              <h2 className="font-serif text-4xl md:text-5xl text-[var(--cream)] font-light mb-4">
+              <h3 className="font-serif text-4xl md:text-5xl text-[var(--cream)] font-light mb-4">
                 Pooja
                 <span className="text-[var(--gold)]"> & </span>
                 Yuvaraj
-              </h2>
+              </h3>
               <p className="text-[var(--gold-light)]/70 font-sans text-sm tracking-wider">
                 May 5th, 2026 | Bhikangaon, Madhya Pradesh.
               </p>
             </div>
 
-            {/* Center - Contact */}
             <div className="md:text-center">
               <p className="text-[var(--gold)] font-sans text-xs tracking-[0.2em] uppercase mb-6">Get in Touch</p>
               <div className="space-y-3">
@@ -47,7 +53,6 @@ export function WeddingFooter() {
               </div>
             </div>
 
-            {/* Right - Social & Hashtag */}
             <div className="md:text-right">
               <p className="text-[var(--gold)] font-sans text-xs tracking-[0.2em] uppercase mb-6">Follow Our Journey</p>
               <div className="flex gap-3 md:justify-end mb-6">
@@ -64,23 +69,22 @@ export function WeddingFooter() {
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
-              <p className="text-[var(--gold)] font-serif text-2xl italic">
+              <p className="text-[var(--gold-light)] font-serif text-2xl italic">
                 #PoojaWedYuvaraj
               </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-[var(--gold)]/10">
           <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-[var(--cream)]/40 font-sans text-xs flex items-center gap-2">
               Made with <Heart className="w-3 h-3 text-[var(--gold)] fill-[var(--gold)]" /> for our special day
             </p>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[var(--gold)]/30" />
+              <span className="w-2 h-2 rotate-45 bg-[var(--gold)]/30" />
               <span className="text-[var(--cream)]/40 font-sans text-xs">See you at the celebration</span>
-              <span className="w-2 h-2 rounded-full bg-[var(--gold)]/30" />
+              <span className="w-2 h-2 rotate-45 bg-[var(--gold)]/30" />
             </div>
           </div>
         </div>

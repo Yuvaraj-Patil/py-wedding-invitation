@@ -48,14 +48,11 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-[var(--burgundy)]">
-      <div className="absolute inset-0 opacity-[0.04]" style={{
-        backgroundImage: `linear-gradient(135deg, transparent 0 48%, #C9A962 49% 51%, transparent 52% 100%)`,
-        backgroundSize: "42px 42px",
-      }} />
+    <section className="royal-dark relative min-h-[100svh] overflow-hidden">
+      <div className="absolute inset-x-6 top-6 bottom-6 border border-[var(--gold)]/15 pointer-events-none" />
 
       <div className="relative grid min-h-[100svh] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
-        <div className="relative min-h-[48svh] overflow-hidden bg-[var(--burgundy-dark)] sm:min-h-[58svh] lg:min-h-[100svh]">
+        <div className="relative min-h-[48svh] overflow-hidden bg-[var(--burgundy-dark)]/55 sm:min-h-[58svh] lg:min-h-[100svh]">
           <Image
             src={heroImage.src}
             alt=""
@@ -65,22 +62,26 @@ export function HeroSection() {
             priority
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--burgundy)]/85 via-[var(--burgundy)]/20 to-black/10 lg:bg-gradient-to-r lg:from-black/10 lg:via-[var(--burgundy)]/10 lg:to-[var(--burgundy)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--burgundy-dark)]/90 via-[var(--burgundy)]/25 to-black/10 lg:bg-gradient-to-r lg:from-black/10 lg:via-[var(--burgundy)]/15 lg:to-[var(--burgundy-dark)]/75" />
 
           <div className="relative z-10 flex min-h-[48svh] items-center justify-center px-5 py-8 sm:min-h-[58svh] sm:px-8 lg:min-h-[100svh] lg:px-12">
-            <div className="relative w-full max-w-[500px]">
-              <div className="absolute -inset-3 border border-[var(--gold)]/35" />
-              <div className="absolute -bottom-5 -right-5 h-28 w-28 border-b border-r border-[var(--gold)]/60" />
-              <div className="absolute -left-5 -top-5 h-28 w-28 border-l border-t border-[var(--gold)]/60" />
-              <div className="relative z-10 h-[42svh] w-full sm:h-[54svh] lg:h-[76svh]">
+            <div className="royal-frame relative w-full max-w-[500px] p-3 sm:p-4">
+              <div className="absolute -left-3 -top-3 h-24 w-24 border-l border-t border-[var(--gold)]/70" />
+              <div className="absolute -bottom-3 -right-3 h-24 w-24 border-b border-r border-[var(--gold)]/70" />
+              <div className="relative z-10 aspect-[3/4] w-full overflow-hidden bg-[var(--burgundy-dark)]">
                 <Image
                   src={heroImage.src}
                   alt={heroImage.alt}
                   fill
-                  className="object-contain drop-shadow-2xl"
+                  className="object-cover"
                   sizes="(max-width: 1024px) min(88vw, 500px), 38vw"
                   priority
                 />
+              </div>
+              <div className="absolute -right-2 top-8 z-20 border border-[var(--gold)]/55 bg-[var(--gold)] px-4 py-5 text-center text-[var(--burgundy-dark)] shadow-xl sm:-right-6">
+                <span className="block font-serif text-3xl leading-none">05</span>
+                <span className="mt-1 block font-sans text-[10px] uppercase tracking-[0.22em]">May</span>
+                <span className="mt-1 block font-sans text-xs">2026</span>
               </div>
             </div>
           </div>
@@ -88,15 +89,13 @@ export function HeroSection() {
 
         <div className="relative flex min-h-[52svh] items-center px-6 py-10 sm:px-10 lg:min-h-[100svh] lg:px-16 xl:px-20">
           <div className="mx-auto w-full max-w-2xl text-center lg:text-left">
-            <div className="flex items-center justify-center gap-4 lg:justify-start">
-              <div className="h-px w-12 bg-[var(--gold)]/50" />
+            <div className="royal-divider lg:justify-start">
               <span className="text-[var(--gold)] font-sans text-xs tracking-[0.28em] uppercase">
                 Wedding Invitation
               </span>
-              <div className="h-px w-12 bg-[var(--gold)]/50" />
             </div>
 
-            <h1 className="mt-6 font-serif text-5xl font-light leading-[0.92] text-[var(--cream)] sm:text-7xl xl:text-8xl">
+            <h1 className="mt-7 font-serif text-5xl font-light leading-[0.92] text-[var(--cream)] sm:text-7xl xl:text-8xl">
               <span className="block">Pooja</span>
               <span className="block text-4xl text-[var(--gold)] sm:text-6xl xl:text-7xl">&amp;</span>
               <span className="block">Yuvaraj</span>
@@ -108,8 +107,8 @@ export function HeroSection() {
               <span>Bhikangaon, Madhya Pradesh</span>
             </div>
 
-            <p className="mx-auto mt-6 max-w-[19rem] text-center font-sans text-sm leading-7 text-[var(--cream)]/82 sm:max-w-xl sm:text-base sm:leading-8 lg:mx-0 lg:text-left">
-              Request the pleasure of your company at the celebration of their marriage.
+            <p className="mx-auto mt-6 max-w-[21rem] text-center font-serif text-xl leading-8 text-[var(--cream)]/90 sm:max-w-xl sm:text-2xl lg:mx-0 lg:text-left">
+              From friendship to forever, we invite you to bless the beginning of our married life.
             </p>
 
             {mounted && (
@@ -117,7 +116,7 @@ export function HeroSection() {
                 {countdown.map((item) => (
                   <div
                     key={item.label}
-                    className="border border-[var(--gold)]/20 bg-[var(--burgundy-dark)]/70 px-4 py-5 text-center"
+                    className="border border-[var(--gold)]/25 bg-[var(--burgundy-dark)]/75 px-4 py-5 text-center shadow-lg shadow-black/10"
                   >
                     <span className="block font-serif text-4xl leading-none text-[var(--gold)]">
                       {item.value.toString().padStart(2, "0")}
@@ -130,9 +129,9 @@ export function HeroSection() {
               </div>
             )}
 
-            <div className="mt-8 flex items-center justify-center gap-3 text-[var(--gold)]/70 lg:mt-10 lg:justify-start">
+            <div className="mt-8 flex items-center justify-center gap-3 text-[var(--gold)]/75 lg:mt-10 lg:justify-start">
               <span className="h-px w-10 bg-[var(--gold)]/40" />
-              <span className="font-serif text-2xl italic">With love and blessings</span>
+              <span className="font-serif text-2xl italic">A journey written with love</span>
             </div>
           </div>
         </div>
