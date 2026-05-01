@@ -88,27 +88,27 @@ export function HeroSection() {
         </div>
 
         <div className="relative flex min-h-[52svh] items-center px-6 py-10 sm:px-10 lg:min-h-[100svh] lg:px-16 xl:px-20">
-          <div className="mx-auto w-full max-w-2xl text-center lg:text-left">
-            <div className="royal-divider lg:justify-start">
+          <div className="mx-auto w-full max-w-2xl text-center">
+            <div className="royal-divider justify-center">
               <span className="text-[var(--gold)] font-sans text-xs tracking-[0.28em] uppercase">
                 Wedding Invitation
               </span>
             </div>
 
-            <h1 className="mt-7 font-serif text-5xl font-light leading-[0.92] text-[var(--cream)] sm:text-7xl xl:text-8xl">
+            <h1 className="mx-auto mt-7 flex w-fit flex-col items-center text-center font-serif text-5xl font-light leading-[0.92] text-[var(--cream)] sm:text-7xl xl:text-8xl">
               <span className="block">Pooja</span>
-              <span className="block text-4xl text-[var(--gold)] sm:text-6xl xl:text-7xl">&amp;</span>
+              <span className="block text-4xl leading-none text-[var(--gold)] sm:text-6xl xl:text-7xl">&amp;</span>
               <span className="block">Yuvaraj</span>
             </h1>
 
-            <div className="mt-6 flex flex-col items-center gap-2 font-sans text-sm tracking-[0.16em] text-[var(--gold-light)]/85 sm:flex-row sm:justify-center sm:gap-4 lg:justify-start">
+            <div className="mt-6 flex flex-col items-center justify-center gap-2 font-sans text-sm tracking-[0.16em] text-[var(--gold-light)]/85 sm:flex-row sm:gap-4">
               <span>May 5, 2026</span>
               <span className="hidden h-1 w-1 rotate-45 bg-[var(--gold)] sm:block" />
               <span>Bhikangaon, Madhya Pradesh</span>
             </div>
 
-            <p className="mx-auto mt-6 max-w-[21rem] text-center font-serif text-xl leading-8 text-[var(--cream)]/90 sm:max-w-xl sm:text-2xl lg:mx-0 lg:text-left">
-              What began as friendship has grown into something lasting join us as we step into forever together.            
+            <p className="mx-auto mt-6 max-w-[21rem] text-center font-serif text-xl leading-8 text-[var(--cream)]/90 sm:max-w-xl sm:text-2xl">
+              What began as friendship has grown into something lasting join us as we step into forever together.              
             </p>
 
             {mounted && (
@@ -129,9 +129,9 @@ export function HeroSection() {
               </div>
             )}
 
-            <div className="mt-8 flex items-center justify-center gap-3 text-[var(--gold)]/75 lg:mt-10 lg:justify-start">
+            <div className="mt-8 flex items-center justify-center gap-3 text-[var(--gold)]/75 lg:mt-10">
               <span className="h-px w-10 bg-[var(--gold)]/40" />
-              <span className="font-serif text-2xl italic">A journey written with love</span>
+              <span className="font-serif text-2xl italic">With blessings and grace</span>
             </div>
           </div>
         </div>

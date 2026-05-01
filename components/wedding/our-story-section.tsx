@@ -99,13 +99,13 @@ export function OurStorySection() {
                   <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10">
                     <button
                       onClick={() => setActiveIndex(index)}
-                      className={`w-12 h-12 flex items-center justify-center border transition-all duration-500 ${isActive
-                        ? "bg-[var(--burgundy)] text-[var(--cream)] border-[var(--gold)] shadow-lg shadow-[var(--burgundy)]/20"
-                        : "bg-[var(--cream)] border-[var(--gold)]/35 text-[var(--gold-deep)] hover:border-[var(--gold)]"
+                      className={`flex h-12 w-12 items-center justify-center transition-all duration-500 ${isActive
+                        ? "scale-110 text-[var(--burgundy)]"
+                        : "text-[var(--gold-deep)] hover:scale-110 hover:text-[var(--burgundy)]"
                         }`}
                       aria-label={`Open chapter ${item.chapter}`}
                     >
-                      <Icon className="w-5 h-5" />
+                      <Icon className={`h-6 w-6 ${isActive && item.icon === Heart ? "fill-current" : ""}`} />
                     </button>
                   </div>
 
