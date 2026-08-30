@@ -1,0 +1,7 @@
+:HL["/_next/static/chunks/0e8167g-z0poz.css","style"]
+:HL["/_next/static/chunks/0djeddi7gvk3v.css","style"]
+:HL["/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/e8f2fbee2754df70-s.p.0fzkl03jw-sdz.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"product","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"daily-pooja-kit","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"6Z9N76ZVeuMoGnWQiLG1T"}

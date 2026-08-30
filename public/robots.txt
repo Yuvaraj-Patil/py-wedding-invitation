@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /wedding
+
+Sitemap: https://shivshambhoeshop.in/sitemap.xml
